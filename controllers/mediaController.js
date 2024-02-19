@@ -22,8 +22,10 @@ exports.create = async (req, res) => {
         audiosPaths.push("/" + audio.path);
       }
     }
+    let key=process.env.openai_key
+    key=key.substring(0,51)
     const openai = new OpenAI({
-      apiKey: process.env.openai_key,
+      apiKey: key,
     });
     console.log("yes");
     let transcript = "";
